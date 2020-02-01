@@ -16,6 +16,7 @@ class App {
     routes(){
         this.server.use(routes)
     }
+     //teste
 }
 
 export default new App().server;
