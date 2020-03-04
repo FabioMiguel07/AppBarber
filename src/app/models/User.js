@@ -18,7 +18,7 @@ class User extends Model{
             if (user.password) {
                 user.password_hash = await bcrypt.hash(user.password, 8 );
             }
-        })
+        });
 
         return this
     }

@@ -10,7 +10,7 @@ class SessionController {
 
         const  user = await User.findOne({
             where: {email}
-        })
+        });
 
         if (!user){
             return response.status(401).json({error: "Usuario nao existe"})
