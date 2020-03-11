@@ -11,12 +11,12 @@ export default async ( request , response, next ) => {
     }
     const [, token] = authHeader.split(' ');
 
-   // console.log(authHeader);
+    console.log(authHeader);
 
     try {
 
         const decoded = await promisify(jwt.verify)(token, auth.secret);
-        console.log(decoded);
+        console.log("LOG Autenticacao: " + decoded.id);
 
         request.userId = decoded.id ;
 

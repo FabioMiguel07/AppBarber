@@ -1,0 +1,34 @@
+import Sequelize, { Model} from "sequelize";
+
+class Agendamento extends Model{
+
+    static init (sequelize) {
+        super.init({
+            date: Sequelize.DATE,
+            canceledAt: Sequelize.DATE,
+
+            }, {
+                sequelize
+            }
+        );
+        return this
+    }
+
+     static associate (models) {
+        //relacionamento usuario
+        this.belongsTo(models.User, {
+            foreignKey: 'user_id' ,
+            as: 'user'
+        });
+
+        //relacionamento provider
+        this.belongsTo(models.User, {
+            foreignKey: 'provider_id' ,
+            as: 'provider'
+        })
+    }
+
+}
+
+export  default Agendamento;
+
